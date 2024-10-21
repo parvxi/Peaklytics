@@ -2,9 +2,13 @@ import os
 import pickle
 from colorama import Fore, Style
 
-# Define the path to your model
-MODEL_PATH = "/Users/SHAD/code/Parvxi/Peaklytics/notebooks/final_lgbm_model_2"
-MODEL_TARGET = "local"  # Since you're loading the model locally
+# Define the target for loading the model (local, docker, gcs, mlflow)
+MODEL_TARGET = "local"  # Change this as needed
+
+# Set model path based on environment (default to Docker's path for docker)
+
+
+MODEL_PATH = os.getenv('MODEL_PATH', '/Users/SHAD/code/Parvxi/Peaklytics/peaklytics/ml_logic/final_lgbm_model_2')
 
 def load_model():
     if MODEL_TARGET == "local":
@@ -25,14 +29,26 @@ def load_model():
             print(f"\n❌ Error loading model: {e}")
             return None
 
+    elif MODEL_TARGET == "docker":
+        print(Fore.GREEN + f"\nLoading model from Docker container at {MODEL_PATH}..." + Style.RESET_ALL)
+
+        # Load the model from Docker path
+        try:
+            with open(MODEL_PATH, 'rb') as model_file:
+                model = pickle.load(model_file)
+            print("✅ Model successfully loaded from Docker container")
+            return model
+        except Exception as e:
+            print(f"\n❌ Error loading model from Docker: {e}")
+            return None
+
     elif MODEL_TARGET == "gcs":
-        # Example for loading model from Google Cloud Storage
         print(Fore.BLUE + f"\nLoad latest model from GCS..." + Style.RESET_ALL)
 
-        # Uncomment and implement if using GCS
+        # Uncomment and implement GCS functionality
         # client = storage.Client()
         # blobs = list(client.get_bucket(BUCKET_NAME).list_blobs(prefix="model"))
-
+        #
         # try:
         #     latest_blob = max(blobs, key=lambda x: x.updated)
         #     latest_model_path_to_save = os.path.join(LOCAL_REGISTRY_PATH, latest_blob.name)
@@ -46,17 +62,16 @@ def load_model():
         #
         #     print("✅ Latest model downloaded from GCS")
         #     return model
-        # except:
-        #     print(f"\n❌ No model found in GCS bucket {BUCKET_NAME}")
+        # except Exception as e:
+        #     print(f"\n❌ No model found in GCS bucket {BUCKET_NAME}: {e}")
         #     return None
-
         pass  # Placeholder for GCS
 
     elif MODEL_TARGET == "mlflow":
         stage = "production"
         print(Fore.BLUE + f"\nLoad [{stage}] model from MLflow..." + Style.RESET_ALL)
 
-        # Example for loading model from MLflow
+        # Uncomment and implement MLflow functionality
         # mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
         # client = MlflowClient()
         #
@@ -72,10 +87,9 @@ def load_model():
         #
         #     print("✅ Model loaded from MLflow")
         #     return model
-        # except:
-        #     print(f"\n❌ No model found with name {MLFLOW_MODEL_NAME} in stage {stage}")
+        # except Exception as e:
+        #     print(f"\n❌ No model found with name {MLFLOW_MODEL_NAME} in stage {stage}: {e}")
         #     return None
-
         pass  # Placeholder for MLflow
 
     else:

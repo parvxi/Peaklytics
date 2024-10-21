@@ -5,17 +5,17 @@ from imblearn.over_sampling import SMOTE
 from sklearn.preprocessing import StandardScaler
 
 # Load the raw dataset
-df = pd.read_csv('/home/smy154/code/parvxi/Peaklytics/raw_data/Peaklytics_intial_data.csv')
+df = pd.read_csv('../Peaklytics/raw_data/Peaklytics_intial_data.csv')
 
 # Clean the raw data and organize it
 df_cleaned = clean_data(df)
 print(f"Rows after cleaning: {df_cleaned.shape[0]}")
 
 # Save the cleaned dataset
-df_cleaned.to_csv('newnotime_cleaned_peaklytics_data.csv', index=False)
+df_cleaned.to_csv('cleaned_peaklytics_data.csv', index=False)
 
 # Load the cleaned dataset for further processing
-df_cleaned_final = load_cleaned_data('/home/smy154/code/parvxi/Peaklytics/newnotime_cleaned_peaklytics_data.csv')
+df_cleaned_final = load_cleaned_data('../Peaklytics/cleaned_peaklytics_data.csv')
 print(f"Rows after further cleaning and processing: {df_cleaned_final.shape[0]}")
 
 # Number of features after cleaning
