@@ -1,6 +1,9 @@
+from . import fast
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import pandas as pd
+import sys
+sys.path.append('/home/sabah/code/parvxi/Peaklytics')
 from peaklytics.ml_logic.preprocessor import clean_data, encode_categorical_features
 from peaklytics.ml_logic.registry import load_model
 from langchain_ollama import OllamaLLM
@@ -44,7 +47,7 @@ class CompanyData(BaseModel):
     country: str
     funding_category: str
     company_age: int
-    market_category: str
+    #market_category: str
 
 @app.get("/")
 def read_root():
@@ -207,7 +210,7 @@ def generate_prompt(predicted_status: str, data: CompanyData, calculations: dict
         1. Expanding market share.
         2. Optimizing operations to improve funding efficiency.
         3. Identifying potential risks and creating mitigation strategies.
-        4. Benchmarking against key competitors in the {data.market_category} industry.
+        4. Benchmarking against key competitors in the {data.funding_category} industry.
         5. Leveraging the company's funding runway and identifying when to seek the next round of investments.
 
         Additionally, provide case studies from companies that have maintained long-term growth in similar industries.
@@ -224,7 +227,7 @@ def generate_prompt(predicted_status: str, data: CompanyData, calculations: dict
         2. Improving funding utilization efficiency and reallocating resources.
         3. Exploring alternative funding sources, such as private equity or convertible notes, to secure financial stability.
         4. Pivoting or adjusting the business model to align with market demands and improve competitiveness in the {data.market} sector.
-        5. Evaluating case studies of companies that successfully turned around similar challenges in {data.market_category}.
+        5. Evaluating case studies of companies that successfully turned around similar challenges in {data.funding_category}.
 
         Provide industry-specific tactics that could boost the company’s chances of success.
         '''
@@ -240,7 +243,7 @@ def generate_prompt(predicted_status: str, data: CompanyData, calculations: dict
         2. Building an MVP and validating product-market fit.
         3. Developing partnerships and expanding customer acquisition channels.
         4. Exploring early revenue opportunities and strategies for achieving breakeven.
-        5. Offering insights on competitors in similar growth stages who have successfully scaled their operations in {data.market_category}.
+        5. Offering insights on competitors in similar growth stages who have successfully scaled their operations in {data.funding_category}.
 
         Provide examples of companies that have navigated this early growth phase and achieved success.
         '''
