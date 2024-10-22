@@ -105,7 +105,7 @@ def meet_team():
         <h4 class="team-heading">👩‍💻 Meet Our Amazing Team 👩‍💻</h4>
         <div style="display: flex; justify-content: space-between;">
             <div class="card1">
-                <img class="profile-image" src="data:image/svg+xml;base64,{image_to_base64('images/1.svg')}" alt="Sabah Baothman">
+                <img class="profile-image" src="data:image/svg+xml;base64,{image_to_base64('/Users/SHAD/code/Parvxi/Peaklytics/app_pages/images/1.svg')}" alt="Sabah Baothman">
                 <div class="card__content">
                     <p class="card__title">Sabah Baothman</p>
                     <p class="card__description">Sabah leads the creative efforts at Peaklytics, overseeing model development and branding.</p>
@@ -113,7 +113,7 @@ def meet_team():
                 </div>
             </div>
             <div class="card2">
-                <img class="profile-image" src="data:image/svg+xml;base64,{image_to_base64('images/2.svg')}" alt="Shahad Hatim">
+                <img class="profile-image" src="data:image/svg+xml;base64,{image_to_base64('/Users/SHAD/code/Parvxi/Peaklytics/app_pages/images/2.svg')}" alt="Shahad Hatim">
                 <div class="card__content">
                     <p class="card__title">Shahad Hatim</p>
                     <p class="card__description">Shahad ensures the smooth running of day-to-day operations and manages our key projects.</p>
@@ -121,7 +121,7 @@ def meet_team():
                 </div>
             </div>
             <div class="card3">
-                <img class="profile-image" src="data:image/svg+xml;base64,{image_to_base64('images/3.svg')}" alt="Joud Alharbi">
+                <img class="profile-image" src="data:image/svg+xml;base64,{image_to_base64('/Users/SHAD/code/Parvxi/Peaklytics/app_pages/images/3.svg')}" alt="Joud Alharbi">
                 <div class="card__content">
                     <p class="card__title">Joud Alharbi</p>
                     <p class="card__description">Joud is the voice of our community, ensuring that users are heard and engaged.</p>
@@ -129,7 +129,7 @@ def meet_team():
                 </div>
             </div>
             <div class="card4">
-                <img class="profile-image" src="data:image/svg+xml;base64,{image_to_base64('images/4.svg')}" alt="Somayah">
+                <img class="profile-image" src="data:image/svg+xml;base64,{image_to_base64('/Users/SHAD/code/Parvxi/Peaklytics/app_pages/images/4.svg')}" alt="Somayah">
                 <div class="card__content">
                     <p class="card__title">Somayah</p>
                     <p class="card__description">Somayah drives our technological strategy, ensuring we remain at the forefront of innovation.</p>

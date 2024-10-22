@@ -84,7 +84,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-
 # Function definition
 def form_page():
     st.markdown("<h1 style='text-align: center;'>🚀 Ready to Get Started?</h1>", unsafe_allow_html=True)
@@ -111,6 +110,7 @@ def form_page():
     # --------------------------------------------------------------------
 
         # Track the state of the checkbox
+    # Track the state of the checkbox
     if "show_details" not in st.session_state:
         st.session_state.show_details = False
 
@@ -123,6 +123,10 @@ def form_page():
 
     with col2:
         st.markdown('<label class="checkbox-label">🔍 Show additional details</label>', unsafe_allow_html=True)
+
+#------------------------------------------------------------------------------------------------
+    st.session_state.show_details = show_details
+#------------------------------------------------------------------------------------------------
 
     # Conditional content
     if st.session_state.show_details:
@@ -164,13 +168,12 @@ def form_page():
 
 
 
-    # Create a div to wrap and center the button
     st.markdown('<div class="button-container">', unsafe_allow_html=True)
 
-    # Button to submit and trigger prediction
-    if st.button("Try it now"):
-        # Collect all input data into a dictionary
-        params  = {
+
+    if st.button("Click for the Insight"):
+        # Collect form data into a dictionary
+        params = {
             "market": market,
             "funding_total_usd": funding_total,
             "funding_category": funding_category,
@@ -179,32 +182,28 @@ def form_page():
             "funding_rounds": funding_rounds,
             "city": city,
             "region": region,
-            # Optional fields, only if details are shown
-            "seed": seed if show_details else 0,
-            "venture": venture if show_details else 0,
-            "equity_crowdfunding": equity_crowdfunding if show_details else 0,
-            "undisclosed": undisclosed if show_details else 0,
-            "convertible_note": convertible_note if show_details else 0,
-            "angel": angel if show_details else 0,
-            "grant": grant if show_details else 0,
-            "private_equity": private_equity if show_details else 0,
-            "post_ipo_equity": post_ipo_equity if show_details else 0,
-            "post_ipo_debt": post_ipo_debt if show_details else 0,
-            "secondary_market": secondary_market if show_details else 0,
-            "product_crowdfunding": product_crowdfunding if show_details else 0,
-            "round_A": round_A if show_details else 0,
-            "round_B": round_B if show_details else 0,
-            "round_C": round_C if show_details else 0,
-            "round_D": round_D if show_details else 0,
-            "round_E": round_E if show_details else 0,
-            "round_F": round_F if show_details else 0,
+            "seed": seed if st.session_state.show_details else 0,
+            "venture": venture if st.session_state.show_details else 0,
+            "equity_crowdfunding": equity_crowdfunding if st.session_state.show_details else 0,
+            "undisclosed": undisclosed if st.session_state.show_details else 0,
+            "convertible_note": convertible_note if st.session_state.show_details else 0,
+            "angel": angel if st.session_state.show_details else 0,
+            "grant": grant if st.session_state.show_details else 0,
+            "private_equity": private_equity if st.session_state.show_details else 0,
+            "post_ipo_equity": post_ipo_equity if st.session_state.show_details else 0,
+            "post_ipo_debt": post_ipo_debt if st.session_state.show_details else 0,
+            "secondary_market": secondary_market if st.session_state.show_details else 0,
+            "product_crowdfunding": product_crowdfunding if st.session_state.show_details else 0,
+            "round_A": round_A if st.session_state.show_details else 0,
+            "round_B": round_B if st.session_state.show_details else 0,
+            "round_C": round_C if st.session_state.show_details else 0,
+            "round_D": round_D if st.session_state.show_details else 0,
+            "round_E": round_E if st.session_state.show_details else 0,
+            "round_F": round_F if st.session_state.show_details else 0,
         }
+
+        # Store form data in session state to use in the loading page
+        st.session_state.params = params
+
+        # Move to loading page
         st.session_state.page = "loading"
-
-        api_url = ' http://127.0.0.1:8000/predict'
-        response = requests.post(api_url, json=params)
-
-        prediction = response.json()
-
-        # Close the div
-        st.markdown('</div>', unsafe_allow_html=True)
