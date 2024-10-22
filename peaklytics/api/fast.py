@@ -1,11 +1,18 @@
+
+import sys
+sys.path.append('/home/joud/code/parvxi/Peaklytics')
+
 from fastapi import FastAPI, HTTPException
+print(sys.path)
+#from api import fast
 from pydantic import BaseModel
 import pandas as pd
 from peaklytics.ml_logic.preprocessor import clean_data, encode_categorical_features
 from peaklytics.ml_logic.registry import load_model
 from langchain_ollama import OllamaLLM
 import logging
-
+import os
+import uvicorn
 # Initialize FastAPI app and load the model
 app = FastAPI()
 llm = OllamaLLM(model="llama3.1")

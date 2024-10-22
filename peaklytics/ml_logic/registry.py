@@ -3,7 +3,7 @@ import pickle
 from colorama import Fore, Style
 
 # Define the path to your model
-MODEL_PATH = "/Users/joud/code/Parvxi/Peaklytics/notebooks/final_lgbm_model_2"
+MODEL_PATH = "/home/joud/code/parvxi/Peaklytics/notebooks/final_lgbm_model_2"
 MODEL_TARGET = "local"  # Since you're loading the model locally
 
 def load_model():
