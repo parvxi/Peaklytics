@@ -8,7 +8,7 @@ MODEL_TARGET = "local"  # Change this as needed
 # Set model path based on environment (default to Docker's path for docker)
 
 
-MODEL_PATH = os.getenv('MODEL_PATH', '/Users/SHAD/code/Parvxi/Peaklytics/peaklytics/ml_logic/final_lgbm_model_2')
+MODEL_PATH = os.getenv('MODEL_PATH', '/home/sabah/code/parvxi/Peaklytics/peaklytics/ml_logic/final_lgbm_model_2')
 
 def load_model():
     if MODEL_TARGET == "local":
