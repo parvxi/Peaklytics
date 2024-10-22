@@ -1,4 +1,4 @@
-from . import fast
+#from . import fast
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import pandas as pd
@@ -6,14 +6,16 @@ import sys
 sys.path.append('/home/sabah/code/parvxi/Peaklytics')
 from peaklytics.ml_logic.preprocessor import clean_data, encode_categorical_features
 from peaklytics.ml_logic.registry import load_model
-from langchain_ollama import OllamaLLM
+#from langchain_ollama import OllamaLLM
+from langchain_cohere.llms import Cohere
 import logging
 import os
 import uvicorn
 
 # Initialize FastAPI app and load the model
 app = FastAPI()
-llm = OllamaLLM(model="llama3.1")
+llm = Cohere(cohere_api_key="KulVf6WXtTKw3HIFbNj4nxNJKHsG8YHbbICQ66zc")
+#llm = OllamaLLM(model="llama3.1")
 app.state.model = load_model()
 
 # Configure logging
