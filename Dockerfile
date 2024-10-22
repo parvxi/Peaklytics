@@ -12,9 +12,9 @@ RUN apt-get update && apt-get install -y \
 # Copy the requirements file into the container
 COPY requirements.txt .
 
+
 # Install the necessary dependencies
 RUN pip install --no-cache-dir --trusted-host pypi.org --trusted-host files.pythonhosted.org -r requirements.txt
-
 
 # Copy the rest of the application code into the container
 COPY peaklytics/ peaklytics/
@@ -26,4 +26,4 @@ COPY peaklytics/ml_logic/final_lgbm_model_2 /prod/peaklytics/ml_logic/final_lgbm
 ENV MODEL_PATH=/prod/peaklytics/ml_logic/final_lgbm_model_2
 
 # Command to run the FastAPI app using Uvicorn with port 8080
-CMD ["sh", "-c", "uvicorn peaklytics.api.fast:app --host 0.0.0.0 --port $PORT"]
+CMD ["sh", "-c", "uvicorn peaklytics.api.fast:app --host 0.0.0.0 --port 8080"]
