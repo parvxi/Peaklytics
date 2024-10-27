@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 # Peaklytics 📈
 
+=======
+
+# Peaklytics 📈
+
+>>>>>>> 440d675 (Save changes before pulling setup.py from docker branch)
 Welcome to **Peaklytics**! This data-driven solution is designed to empower businesses by predicting potential outcomes and providing actionable insights to drive success. Built as part of the **Data Science Bootcamp** by the **Saudi Digital Academy** in partnership with **Le Wagon**, Peaklytics represents a culmination of data science techniques and collaborative effort.
 
 ## Table of Contents
@@ -34,7 +40,11 @@ Peaklytics is a predictive tool tailored to support businesses in their strategi
 
 1. **Clone the Repository**:
    ```bash
+<<<<<<< HEAD
    git clone https://github.com/yourusername/peaklytics.git
+=======
+   git clone https://github.com/parvxi/peaklytics.git
+>>>>>>> 440d675 (Save changes before pulling setup.py from docker branch)
    cd peaklytics
    ```
 
@@ -48,21 +58,36 @@ Peaklytics is a predictive tool tailored to support businesses in their strategi
    ```bash
    # Local
    streamlit run app.py
+<<<<<<< HEAD
    
    # Docker
    docker build -t peaklytics .
    docker run -p 8501:8501 peaklytics
+=======
+
+   # Docker
+   docker build -t peaklytics .
+   docker run -p PORT:PORT peaklytics
+>>>>>>> 440d675 (Save changes before pulling setup.py from docker branch)
    ```
 
 ## Usage
 
 1. **Run the Application**:
    Start the Streamlit app with `streamlit run app.py`.
+<<<<<<< HEAD
    
 2. **Input Data**:  
    - Enter business details like market, funding type, region, and company age.
    - Access additional insights by clicking on "Show additional details."
    
+=======
+
+2. **Input Data**:
+   - Enter business details like market, funding type, region, and company age.
+   - Access additional insights by clicking on "Show additional details."
+
+>>>>>>> 440d675 (Save changes before pulling setup.py from docker branch)
 3. **View Prediction Results**:
    - The application will provide an outcome prediction (e.g., Success) and display detailed insights and recommendations.
 
@@ -73,12 +98,17 @@ Peaklytics is a predictive tool tailored to support businesses in their strategi
 
 - **Frontend**: Built with [Streamlit](https://streamlit.io/) for a clean, interactive user experience.
 - **Backend**: Powered by [FastAPI](https://fastapi.tiangolo.com/) to handle predictions and API requests.
+<<<<<<< HEAD
 - **Machine Learning Model**: A model trained on historical business data to predict success likelihood.
+=======
+- **Machine Learning Model**: A model trained on historical business data to predict success likelihood. LightGBM
+>>>>>>> 440d675 (Save changes before pulling setup.py from docker branch)
 - **Data Preprocessing**: Utilizes SMOTE for handling imbalances, one-hot encoding for categorical features, and IQR for outlier detection.
 
 ## Screenshots
 
 ### 1. Welcome Page
+<<<<<<< HEAD
 ![Welcome Page](app_pages/images/C4F3BBB2-E464-41D6-8577-B8EDC92416A0_4_5005_c.jpeg)
 
 ### 2. User Input
@@ -86,6 +116,15 @@ Peaklytics is a predictive tool tailored to support businesses in their strategi
 
 ### 3. Prediction Results
 ![Prediction Results](app_pages/images/EBCC1299-CBF3-448E-9EE3-409086730F7A_4_5005_c.jpeg)
+=======
+![Welcome Page](./images/welcome.png)
+
+### 2. User Input
+![User Input](./images/user_input.png)
+
+### 3. Prediction Results
+![Prediction Results](./images/prediction_results.png)
+>>>>>>> 440d675 (Save changes before pulling setup.py from docker branch)
 
 These screenshots showcase the user experience from start to finish!
 

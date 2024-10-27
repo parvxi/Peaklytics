@@ -1,9 +1,6 @@
-from . import fast
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import pandas as pd
-import sys
-sys.path.append('/home/sabah/code/parvxi/Peaklytics')
 from peaklytics.ml_logic.preprocessor import clean_data, encode_categorical_features
 from peaklytics.ml_logic.registry import load_model
 from langchain_ollama import OllamaLLM
@@ -12,7 +9,10 @@ import os
 import uvicorn
 
 # Initialize FastAPI app and load the model
+# make ollama image and push to gcloud
+# CHECK is it possiable to run ollama on same py without making it into seperate servers?
 app = FastAPI()
+# seperate server
 llm = OllamaLLM(model="llama3.1")
 app.state.model = load_model()
 
