@@ -79,13 +79,13 @@ Peaklytics is a predictive tool tailored to support businesses in their strategi
 ## Screenshots
 
 ### 1. Welcome Page
-![Welcome Page](./images/welcome.png)
+![Welcome Page](app_pages/images/C4F3BBB2-E464-41D6-8577-B8EDC92416A0_4_5005_c.jpeg)
 
 ### 2. User Input
-![User Input](./images/user_input.png)
+![User Input](app_pages/images/9912AD7A-6226-460B-AB54-80F2F7D13983_4_5005_c.jpeg)
 
 ### 3. Prediction Results
-![Prediction Results](./images/prediction_results.png)
+![Prediction Results](app_pages/images/EBCC1299-CBF3-448E-9EE3-409086730F7A_4_5005_c.jpeg)
 
 These screenshots showcase the user experience from start to finish!
 
